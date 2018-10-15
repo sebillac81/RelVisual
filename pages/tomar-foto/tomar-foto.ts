@@ -14,6 +14,7 @@ export class TomarFotoPage {
   titulo: string = "";
   //imagenPreview: string = "";
   //imagen64: string;
+  // ijvoidjvodijvsoivjdoj
   tipoFoto:string;
   ldg:Loading = null;
 
