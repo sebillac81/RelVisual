@@ -1,0 +1,28 @@
+<ion-content padding>
+  <ion-item color="dark">
+    <ion-label>
+        Email
+    </ion-label>
+    <ion-input [(ngModel)]="user.email" name="email" type="text" autocapitalize="off" required></ion-input>
+  </ion-item>
+  <ion-item color="light">
+    <ion-label>
+      Contraseña
+    </ion-label>
+    <ion-input [(ngModel)]="user.password" name="password" type="password" required></ion-input>
+  </ion-item>
+  <ion-item color="dark">
+    <button ion-button block round color="s-light" icon-start (click)="login()">
+      <ion-icon name="power"></ion-icon>
+      INGRESAR
+    </button>
+    <button ion-button block round outline color="s-dark" icon-start (click)="signin()">
+      <ion-icon name="create"></ion-icon>
+      REGISTRARME
+    </button>
+    <button ion-button block clear color="s-dark" icon-start (click)="test()">
+      Admin
+    </button>
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-navbar>
+        <!-- <ion-buttons>
+            <button ion-button (click)="cerrarModal()">
+                Cerrar
+            </button>
+        </ion-buttons> -->
+
+
+        <!-- <ion-title text-center>{{ titulo }}</ion-title> -->
+
+        <ion-item no-lines>  
+        <ion-label floating>Título</ion-label>
+        <ion-input type="text" [(ngModel)]="titulo" maxlength="10"></ion-input>
+        </ion-item>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="salir()">
+              <ion-icon name='log-out'></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-grid>
+        <ion-row>
+            <ion-slides pager #slider>
+                <ion-slide *ngFor="let img of imgList" color="light">
+                    <ion-card>
+                        <ion-row>
+                                <ion-col >
+                                        <button  ion-button color="danger" (click)="eliminar(img)"  icon-start clear small>
+                                                <ion-icon name='close'></ion-icon>
+                                        </button>
+                                </ion-col>
+                            </ion-row>
+        
+                        <img [src]="img.imagenPreview">
+                        <ion-row>
+                                <ion-col text-right>
+                                        <!-- <ion-note> -->
+                                            <div>{{img.titulo}}</div>
+                                        <!-- </ion-note> -->
+                                </ion-col>
+                        </ion-row>
+                    </ion-card>
+                </ion-slide>
+              </ion-slides>
+        </ion-row>
+    </ion-grid>
+
+    <ion-fab center bottom #fab>
+        <button ion-fab color="primary"><ion-icon name="expand"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button ion-fab color="s-light" (click)="fab.close(); mostrarCamara()"><ion-icon name="camera"></ion-icon></button>
+        </ion-fab-list>
+        <ion-fab-list side="left">
+            <button ion-fab color="danger" (click)="fab.close(); cerrarModal()"><ion-icon name="close"></ion-icon></button>
+        </ion-fab-list>
+        <ion-fab-list side="right" *ngIf="mostrar">
+            <button ion-fab color="p-dark" (click)="fab.close(); cargarImagen()"><ion-icon name="checkmark"></ion-icon></button>
+        </ion-fab-list>
+
+        <!-- <button ion-fab color="danger" (click)="cerrarModal()"><ion-icon name="close"></ion-icon></button> -->
+    </ion-fab>
+
+    <!-- <ion-fab right bottom *ngIf="mostrar">
+        <button ion-fab color="s-light" (click)="cargarImagen()"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-fab> -->
+
+
+  </ion-content>

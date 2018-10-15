@@ -1,0 +1,49 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Listado</ion-title>
+  </ion-navbar>
+
+  <button ion-button (click)="salir()">salir</button>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card  *ngFor="let img of _cap.imagenes">
+    <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/usuario.png">
+        </ion-avatar>
+        <h3>{{img.usuario}}</h3>
+        <p>{{img.fecha | date:'dd/MM/yyyy - HH:mm'}}hs</p>
+    </ion-item>
+    
+    <img [src]="img.img">
+    <ion-row >
+      <ion-col>
+        <button ion-button [color]="verColor(img.key)" clear small icon-start (click)="sumarVoto(img.key, img.votos)">
+          <ion-icon name='thumbs-up'></ion-icon>
+          {{img.votos}} votos
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          {{img.titulo}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+</ion-card>
+
+      <ion-fab right bottom>
+          <button ion-fab color="danger" (click)="mostrarModal()"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+
+        <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)"
+        [enabled]="hayMas">
+        <ion-infinite-scroll-content
+        loadingSpinner="dots"
+        loadingText="Cargando mas imágenes...">
+      </ion-infinite-scroll-content>
+        </ion-infinite-scroll>  -->
+</ion-content>
